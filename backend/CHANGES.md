@@ -37,3 +37,11 @@
 | `GET /api/urls` (existing list API, unchanged) | **200** — listed the test URL with `clicks: 2` |
 
 All tests passed.
+
+---
+
+## Hosting readiness — 2026-11-12
+
+- `server.js` — the server now listens on `process.env.PORT` (falling
+  back to 3000). It was hardcoded to 3000, which Render does not allow —
+  Render assigns the port itself.
