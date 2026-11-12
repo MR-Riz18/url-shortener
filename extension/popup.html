@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shorty — URL Shortener</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header>
+    <h1>🔗 Shorty</h1>
+    <span id="status" class="status offline">Server off</span>
+  </header>
+
+  <p class="hint" id="serverHint">Start your backend first: <code>npm run dev</code></p>
+
+  <label for="longUrl">Long URL</label>
+  <input id="longUrl" type="url" placeholder="https://www.youtube.com/watch?v=..." autocomplete="off">
+
+  <div class="row">
+    <button id="shortenBtn" class="primary">Shorten</button>
+    <button id="currentTabBtn" title="Use the page you are on right now">Use current tab</button>
+  </div>
+
+  <p id="error" class="error" hidden></p>
+
+  <div id="result" class="result" hidden>
+    <label>Your short link</label>
+    <a id="shortUrlLink" href="#" target="_blank" rel="noopener"></a>
+    <div class="row">
+      <button id="copyBtn">Copy</button>
+      <button id="openBtn">Open</button>
+    </div>
+    <p id="copyMsg" class="copy-msg" hidden>Copied!</p>
+  </div>
+
+  <div class="list-head">
+    <h2>Your links</h2>
+    <button id="refreshBtn" title="Reload the list">↻ Refresh</button>
+  </div>
+  <p id="emptyMsg" class="empty">No links yet. Shorten one above.</p>
+  <ul id="linksList"></ul>
+
+  <details class="settings">
+    <summary>Settings</summary>
+    <label for="apiBase">Backend address</label>
+    <input id="apiBase" type="url" placeholder="http://localhost:3000">
+    <button id="saveApiBtn">Save address</button>
+    <p class="small">Change this only if your backend runs on a different address or port. The extension needs host permission for that address in manifest.json.</p>
+  </details>
+
+  <script src="popup.js"></script>
+</body>
+</html>
